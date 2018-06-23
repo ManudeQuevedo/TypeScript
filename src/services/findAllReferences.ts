@@ -841,7 +841,7 @@ namespace ts.FindAllReferences.Core {
             // This wasn't the start of a token.  Check to see if it might be a
             // match in a comment or string if that's what the caller is asking
             // for.
-            if (!state.options.implementations && (state.options.findInStrings && isInString(sourceFile, position) || state.options.findInComments && isInNonReferenceComment(sourceFile, position))) {
+            if (!state.options.implementations && (state.options.findInStrings && isInString(sourceFile, position) || state.options.findInComments && isInComment(sourceFile, position))) {
                 // In the case where we're looking inside comments/strings, we don't have
                 // an actual definition.  So just use 'undefined' here.  Features like
                 // 'Rename' won't care (as they ignore the definitions), and features like
